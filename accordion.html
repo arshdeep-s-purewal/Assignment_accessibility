@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+      let buttons = document.querySelectorAll("#accordion button");
+      buttons.forEach((button) => {
+        let content = button.nextElementSibling;
+        button.addEventListener("click", (event) => {
+          if (button.classList.contains("active")) {
+            button.classList.remove("active");
+            button.setAttribute("aria-expanded", false);
+            content.style.maxHeight = null;
+            content.setAttribute("aria-hidden", true);
+          } else {
+            button.classList.add("active");
+            button.setAttribute("aria-expanded", true);
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.setAttribute("aria-hidden", false);
+          }
+        });
+      });
+    });
+    </script>
+</head>
+
+<body>
+    <ul id="accordion">
+        <li>
+          <button aria-controls="content-1" aria-expanded="false" id="accordion-1">Where is netsolutions is located?</button>
+          <div class="acc-item-content" aria-hidden="true" id="content-1">
+            <p>Site No. 15, IT PARK</p>
+          </div>
+        </li>
+        <li>
+          <button aria-controls="content-2" aria-expanded="false" id="accordion-2"> 
+            Is there any gym facility in netsolutions?</button>
+          <div class="acc-item-content" aria-hidden="true" id="content-2">
+            <p>YES</p>
+          </div>
+        </li>
+        <li>
+          <button aria-controls="content-3" aria-expanded="false" id="accordion-3">HTML stands for?</button>
+          <div class="acc-item-content" aria-hidden="true" id="content-3">
+            <p>Hyper Text Markup Language</p>
+          </div>
+        </li>
+        <li>
+          <button aria-controls="content-4" aria-expanded="false" id="accordion-4">In how many ways we can apply CSS to a HTML file?</button>
+          <div class="acc-item-content" aria-hidden="true" id="content-4">
+            <p>3, Internal CSS, Inline CSS, External CSS</p>
+          </div>
+        </li>
+        <li>
+          <button aria-controls="content-5" aria-expanded="false" id="accordion-5">Who is CEO of netsolutions?</button>
+          <div class="acc-item-content" aria-hidden="true" id="content-5">
+            <p>Sameer Jain</p>
+          </div>
+        </li>
+      </ul>
+</body>
+
+</html>

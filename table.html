@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">Roll No</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">College</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Arshdeep Singh</th>
+                    <td>1011</td>
+                    <td>22</td>
+                    <td>CSE</td>
+                    <td>Final</td>
+                    <td>GNE</td>
+                </tr>
+                <tr>
+                    <th scope="row">Banipreet Singh</th>
+                    <td>1234</td>
+                    <td>21</td>
+                    <td>IT</td>
+                    <td>4th</td>
+                    <td>GNE</td>
+                </tr>
+                <tr>
+                    <th scope="row">Punar Pratap Singh</th>
+                    <td>1067</td>
+                    <td>21</td>
+                    <td>CSE</td>
+                    <td>Final</td>
+                    <td>GNE</td>
+                </tr>
+                <tr>
+                    <th scope="row">Upneet Kaur</th>
+                    <td>1665</td>
+                    <td>22</td>
+                    <td>ECE</td>
+                    <td>3rd</td>
+                    <td>GNE</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sukhmeet Singh</th>
+                    <td>2113</td>
+                    <td>22</td>
+                    <td>CSE</td>
+                    <td>1st</td>
+                    <td>null</td>
+                </tr>
+
+            </tbody>   
+        </table>
+    </div>
+
+
+    <!-- pop-up dialog box, containing a form -->
+  <dialog id="favDialog">
+    <p> Hii there, welcome to the dialog box</p>
+    <p>This table is showing the detail of some students</p>
+    <p>who are having there internship at netsolutions.</p>
+    <p> Contact us if you are having any doubt here.</p>
+    <p id="telephone"  aria-label="teli">2516-24458</p>
+    <button id="close" aria-label="close">&times;</button>
+  </dialog>
+  
+  <div>
+    <button id="updateDetails">Read More</button>
+  </div>
+
+</body>
+
+<script>
+      const updateButton = document.getElementById("updateDetails");
+      const cancelButton = document.getElementById("close");
+      const dialog = document.getElementById("favDialog");
+      dialog.returnValue = "favAnimal";
+
+      function openCheck(dialog) {
+        if (dialog.open) {
+        console.log("Dialog open");
+        } else {
+          console.log("Dialog closed");
+        }
+      }
+
+    // Update button opens a modal dialog
+    updateButton.addEventListener("click", () => {
+    dialog.showModal();
+    openCheck(dialog);
+    });
+
+    // Form cancel button closes the dialog box
+    cancelButton.addEventListener("click", () => {
+    dialog.close("animalNotChosen");
+    openCheck(dialog);
+  });
+</script>
+</html>
